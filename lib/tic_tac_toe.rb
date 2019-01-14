@@ -96,14 +96,12 @@ def winner(board)
 end
 
 def play(board)
-  move = 0 
-  while move < 9 
-  turn(board)
-  move += 1
+  turn(board) until over?(board)
   if won?(board)
-    puts "Congratulations!"
-  else
-    puts "Cat\'s game!"
+    puts "Congratulations #{winner(board)}!"
+  elsif draw?(board)
+    puts "Cat's Game!"
+  end
 end
 
 
