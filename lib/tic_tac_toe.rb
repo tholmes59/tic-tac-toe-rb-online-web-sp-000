@@ -96,7 +96,10 @@ def winner(board)
 end
 
 def play(board)
-  
+  move = 0 
+  while move < 9 
+  turn(board)
+  move += 1
   if won?(board)
     puts "Congratulations!"
   else
