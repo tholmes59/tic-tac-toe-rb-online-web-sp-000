@@ -44,11 +44,11 @@ def turn(board)
   input = gets.strip
   index = input_to_index(input)
   if valid_move?(board, index)
-  move(board, index, character)
-else 
-  turn(board)
-end
-display_board(board)
+    move(board, index)
+    display_board(board)
+  else
+    turn(board)
+  end
 end
 
 def turn_count(board)
