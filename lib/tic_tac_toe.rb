@@ -27,16 +27,16 @@ def move(board, index, character)
   board[index] = character
 end
 
-def valid_move?(board, index)
-  position_taken?(board, index) == false && index.between?(0, 8)
-end
-
 def position_taken?(board, index)
   if (board[index] == " " || board[index] == "" || board[index] == nil)
     taken = false
   else
     taken = true 
   end
+end
+
+def valid_move?(board, index)
+  position_taken?(board, index) == false && index.between?(0, 8)
 end
 
 def turn(board)
@@ -49,14 +49,6 @@ else
   turn(board)
 end
 display_board(board)
-end
-
-def play(board)
-  move = 0 
-  while move < 9
-  turn(board)
-  move += 1
-end
 end
 
 def turn_count(board)
@@ -76,7 +68,6 @@ def current_player(board)
     return "O"
   end
 end
-
 
 def won?(board)
   WIN_COMBINATIONS.find do |win|
@@ -103,3 +94,15 @@ def winner(board)
     board[win[0]]
   end
 end
+
+def play(board)
+  move = 0 
+  while move < 9
+  turn(board)
+  move += 1
+end
+end
+
+
+
+
